@@ -20,11 +20,6 @@ public partial class OrdersLine
     [Unicode(false)]
     public string OrdersLineOrdersId { get; set; } = null!;
 
-    [Column("ORDERS_LINE_PRODUCT_ID")]
-    [StringLength(32)]
-    [Unicode(false)]
-    public string OrdersLineProductId { get; set; } = null!;
-
     [Column("ORDERS_LINE_QTY")]
     [Precision(4)]
     public byte OrdersLineQty { get; set; }
@@ -51,8 +46,4 @@ public partial class OrdersLine
     [ForeignKey("OrdersLineOrdersId")]
     [InverseProperty("OrdersLines")]
     public virtual Order OrdersLineOrders { get; set; } = null!;
-
-    [ForeignKey("OrdersLineProductId")]
-    [InverseProperty("OrdersLines")]
-    public virtual Product OrdersLineProduct { get; set; } = null!;
 }
